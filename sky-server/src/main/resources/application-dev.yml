@@ -6,3 +6,15 @@ sky:
     database: sky_take_out
     username: root
     password: kx6855253
+  alioss:
+    access-key-secret: OFmmaVdjUkSX8S1LtofSByMdeJAwXK
+    bucket-name: gdou-cast
+    access-key-id: LTAI5tNYYYpHuTgmkGHdF3EN
+    endpoint: oss-cn-beijing.aliyuncs.com
+
+  redis:
+      host: localhost
+      port: 6379
+  wechat:
+    secret: 6c52863e0b30d5f17fd91a1de387560c
+    appid: wx9c3b35fcb2b8d853

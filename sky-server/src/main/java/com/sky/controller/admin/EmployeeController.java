@@ -28,6 +28,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/employee")
+@Api(tags = "员工相关接口")
 @Slf4j
 public class EmployeeController {
 
@@ -73,8 +74,7 @@ public class EmployeeController {
      *
      * @return
      */
-    @ApiModelProperty("退出登录")
-    @ApiOperation("退出登录")
+    @ApiOperation(value = "退出登录")
     @PostMapping("/logout")
     public Result<String> logout() {
         return Result.success();
@@ -89,7 +89,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/page")
-    @ApiOperation("分页查询")
+    @ApiOperation(value = "分页查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
         log.info("分页数:{}",employeePageQueryDTO);
         PageResult pg=employeeService.page(employeePageQueryDTO);
@@ -104,7 +104,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/status/{status}")
-    @ApiOperation("启用禁用员工账号")
+    @ApiOperation(value = "启用禁用员工账号")
     public Result StartOrStop(@PathVariable Integer status,Long id){
         log.info("状态和id分别为：{}，{}",status,id);
         employeeService.StartOrStop(status,id);
@@ -112,7 +112,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("根据id查询")
+    @ApiOperation(value = "根据id查询")
     public Result<Employee> getById(@PathVariable Integer id){
         log.info("根据id查询:{}",id);
         Employee employee=employeeService.getById(id);
@@ -120,7 +120,7 @@ public class EmployeeController {
     }
 
     @PutMapping
-    @ApiOperation("更新员工数据")
+    @ApiOperation(value = "更新员工数据")
     public Result update(@RequestBody EmployeeDTO employeeDTO){
         log.info("更新数据:{}",employeeDTO);
         employeeService.update(employeeDTO);
