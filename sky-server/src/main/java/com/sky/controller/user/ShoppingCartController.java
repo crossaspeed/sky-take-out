@@ -35,5 +35,18 @@ public class ShoppingCartController {
         return Result.success(list);
     }
 
+    @PostMapping("/sub")
+    @ApiOperation(value = "减少商品")
+    public Result minus(@RequestBody ShoppingCartDTO shoppingCartDTO) {
+        shoppingCartService.minusShoppingCart(shoppingCartDTO);
+        return Result.success();
+    }
+
+    @DeleteMapping("/clean")
+    public Result clean() {
+
+        shoppingCartService.cleanShoppingCart();
+        return Result.success();
+    }
 
 }
