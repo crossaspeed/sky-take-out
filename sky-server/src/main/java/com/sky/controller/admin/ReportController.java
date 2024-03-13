@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
 @Api(tags = "数据统计相关接口")
@@ -60,4 +61,9 @@ public class ReportController {
 
     }
 
+    @GetMapping("/export")
+    @ApiOperation(value = "导出运营数据报表")
+    public void export(HttpServletResponse response){
+        reportService.exportBusinessData(response);
+    }
 }
